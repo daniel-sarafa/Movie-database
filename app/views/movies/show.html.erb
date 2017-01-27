@@ -1,0 +1,81 @@
+<body>
+<div id="bannertop">
+<%= image_tag("Fallout4Ad.jpg", :height => "10%", :width => "100%")%>
+</div>	
+<div id="logotop">
+<%= image_tag("LuqySevenLogo.png", :alt => "LuqySevenLogo", :height => "40%", :width => "40%") %>
+</div>
+
+<div id="showContent">
+<br>
+  <center>
+  <%= link_to 'Back to Movie List', movies_path, :class=>"buttonLink"%>
+  <%= link_to 'Edit', edit_movie_path(@movie), :class=>"buttonLink" %>
+  </center>
+  <br>
+  <hr>
+  <h2><%= @movie.title %></h2>
+  <hr>
+    <div class="clearFix">
+        <div class="showContainer">
+          <div class="clearFix">
+            <div class="image">
+              <center><%= image_tag (@movie.id.to_s + ".jpg") %></center>
+            </div>
+              <div class="info">
+                <strong>Year:&nbsp;</strong>  <%= @movie.year %><br>
+                <strong>Runtime:&nbsp;</strong>  <%= @movie.runtime %><br>
+                <strong>Director:&nbsp;</strong>  <%= @movie.director %><br>
+                <strong>On Netflix:&nbsp;</strong>  <%= @movie.netflix %><br>
+                <strong>On Amazon:&nbsp;</strong>  <%= @movie.amazon %><br>
+                <strong>On Hulu:&nbsp;</strong>  <%= @movie.hulu %><br>
+                  <br><hr><br>
+                <strong>Description:&nbsp;</strong>
+                <p>
+                  <%= @movie.description %>
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="description">
+
+    </div>
+</div>
+<!-- </div> -->
+<br>
+<center>
+<%= link_to 'Back to Movie List', movies_path, :class=>"buttonLink"%>
+<%= link_to 'Edit', edit_movie_path(@movie), :class=>"buttonLink" %>
+</center>
+
+<div id="comDisplay">
+  <h2>Comments</h2>
+  <% @movie.comments.each do |comment| %>
+	<p>
+    <!-- <span class="tip tip-up"></span> -->
+    <div id="commentBubble">
+        <h4 id="comment"><%= comment.body %></h4>
+    		<h5 id="comment"><%= comment.created_at.to_time.strftime('%B %e, %I:%M %p') %></h5>
+    </div>
+  </p>
+  <% end %>
+</div>
+
+<div id="comAdd">
+  <h2>Add a comment:</h2>
+  <%= form_for([@movie, @movie.comments.build]) do |f|%>
+  	<p id="comment_box">
+  		<%= f.label :body %><br>
+  		<%= f.text_area :body, :cols=>"50", :rows=>"4" %>
+  	</p>
+    <center>
+  	<p id="comment_button">
+  		<%= f.submit :class=>"buttonLink"%>
+  	</p></center>
+  	<% end %>
+</div>
+
+<br><br>
+</body>

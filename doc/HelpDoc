@@ -1,0 +1,7 @@
+Luqy Help Document
+The title page of the website displays the title of the website with a search bar below it. Below the search bar is a table 
+that displays a list of movies in the database. The table displays the title of the movie, along with the director, runtime, 
+director, and streaming availability of Netflix, Hulu, and Amazon Prime. To search through movies simply type the title into 
+the database and the database will display only movies that match your search criteria. To get more information about a movie 
+simply click on the title of the movie and you will be redirected to that movies information page with a more in depth 
+description of the film.
